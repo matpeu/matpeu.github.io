@@ -3,6 +3,10 @@ p {
   margin-bottom: 0;
 }
 
+header{
+  text-align: center;
+}
+
 /* Assure que le body prend toute la hauteur de la page */
 html, body {
   height: 100%;

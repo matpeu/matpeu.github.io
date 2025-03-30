@@ -27,7 +27,7 @@ html, body {
 
 /* Styles du footer */
 footer {
-  background-color: #333;
+  background-color: linear-gradient(135deg, #ff4d4d, #0073e6);
   color: white;
   text-align: center;
   padding: 10px 0;

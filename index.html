@@ -1,7 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription à l'événement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div class="container">
+        <h2>Inscription à l'événement</h2>
+        <form>
+            <input type="text" placeholder="Nom complet" required>
+            <input type="email" placeholder="Email" required>
+            <label for="date">Date de l'événement :</label>
+            <select id="date" required>
+                <option value="">Sélectionnez une date</option>
+                <option value="2025-04-10">10 avril 2025</option>
+                <option value="2025-05-15">15 mai 2025</option>
+                <option value="2025-06-20">20 juin 2025</option>
+            </select>
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
 </body>
 </html>

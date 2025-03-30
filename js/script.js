@@ -2,13 +2,14 @@ document.getElementById("inscriptionForm").addEventListener("submit", function(e
     event.preventDefault(); // Empêche l'envoi classique du formulaire
 
     let nom = document.getElementById("nom").value.trim();
+    let prenom = document.getElementById("prenom").value.trim();
     let email = document.getElementById("email").value.trim();
     let telephone = document.getElementById("telephone").value.trim();
     let date = document.getElementById("date").value;
     let fonction = document.getElementById("fonction").value.trim();;
     let entreprise = document.getElementById("entreprise").value.trim();;
 
-    if (nom === "" || email === "" || telephone === "" || date === "" || fonction === "" || entreprise === "") {
+    if (prenom === "" || nom === "" || email === "" || telephone === "" || date === "" || fonction === "" || entreprise === "") {
         alert("Veuillez remplir tous les champs.");
         return;
     }

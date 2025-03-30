@@ -5,8 +5,10 @@ document.getElementById("inscriptionForm").addEventListener("submit", function(e
     let email = document.getElementById("email").value.trim();
     let telephone = document.getElementById("telephone").value.trim();
     let date = document.getElementById("date").value;
+    let fonction = document.getElementById("fonction").value.trim();;
+    let entreprise = document.getElementById("entreprise").value.trim();;
 
-    if (nom === "" || email === "" || telephone === "" || date === "") {
+    if (nom === "" || email === "" || telephone === "" || date === "" || fonction === "" || entreprise === "") {
         alert("Veuillez remplir tous les champs.");
         return;
     }

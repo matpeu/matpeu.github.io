@@ -130,3 +130,7 @@ button {
 button:hover {
   background-color: #218838;
 }
+
+.event-info {
+  margin-bottom: 40px; /* Augmentez la valeur pour plus d'espace */
+}

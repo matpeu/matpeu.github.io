@@ -1,10 +1,7 @@
+/* Reset de base */
 p {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-header{
-  text-align: center;
 }
 
 /* Assure que le body prend toute la hauteur de la page */
@@ -17,9 +14,14 @@ html, body {
   background: linear-gradient(135deg, #0073e6, #ff4d4d);
 }
 
+/* Header */
+header {
+  text-align: center;
+}
+
 /* Conteneur principal */
-.form-section {
-  flex: 1; /* Permet à la section de prendre tout l'espace disponible */
+.form-section, .event-info {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,17 +38,82 @@ footer {
   bottom: 0;
 }
 
-
+/* Conteneur de l'événement */
 .container {
   background: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-input, select, button {
+/* Texte de l'événement */
+.text-content h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.text-content h1 span {
+  color: black;
+}
+
+.text-content h2 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.text-content p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.text-content p i {
+  margin-right: 8px;
+  color: green;
+}
+
+.date {
+  color: green;
+  font-weight: bold;
+}
+
+/* Styles du bouton Billetterie */
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.btn-ticket, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Couleur spécifique pour le bouton billetterie */
+.btn-ticket {
+  background-color: #3e8e41;
+  color: white;
+  font-size: 14px;
+}
+
+.btn-ticket:hover {
+  background-color: #2e6e31;
+}
+
+/* Styles des inputs et selects */
+input, select {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -54,14 +121,12 @@ input, select, button {
   border-radius: 5px;
 }
 
+/* Bouton générique */
 button {
   background-color: #28a745;
   color: white;
-  border: none;
-  cursor: pointer;
 }
 
 button:hover {
   background-color: #218838;
 }
-

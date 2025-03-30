@@ -19,3 +19,7 @@ document.getElementById("inscriptionForm").addEventListener("submit", function(e
         document.getElementById("message").style.display = "none";
     }, 3000);
 });
+
+document.querySelector(".btn-ticket").addEventListener("click", function() {
+    window.location.href = "https://lien-vers-billetterie.com";
+});

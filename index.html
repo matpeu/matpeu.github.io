@@ -3,24 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription à l'événement</title>
+    <title>Inscription à l'Événement</title>
     <link rel="stylesheet" href="styles/general.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Inscription à l'événement</h2>
-        <form>
-            <input type="text" placeholder="Nom complet" required>
-            <input type="email" placeholder="Email" required>
-            <label for="date">Date de l'événement :</label>
-            <select id="date" required>
-                <option value="">Sélectionnez une date</option>
-                <option value="2025-04-10">10 avril 2025</option>
-                <option value="2025-05-15">15 mai 2025</option>
-                <option value="2025-06-20">20 juin 2025</option>
-            </select>
-            <button type="submit">S'inscrire</button>
-        </form>
-    </div>
+    <header>
+        <h1>Bienvenue au Printemps des Entreprises</h1>
+        <p>Inscrivez-vous dès maintenant pour participer à cet événement exceptionnel !</p>
+    </header>
+    
+    <section class="form-section">
+        <div class="container">
+            <h2>Formulaire d'Inscription</h2>
+            <form id="inscriptionForm">
+                <input type="text" id="nom" placeholder="Nom complet" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="telephone" placeholder="Téléphone" required>
+                <label for="date">Date de l'événement :</label>
+                <select id="date" required>
+                    <option value="">Sélectionnez une date</option>
+                    <option value="2025-04-10">10 avril 2025</option>
+                    <option value="2025-05-15">15 mai 2025</option>
+                    <option value="2025-06-20">20 juin 2025</option>
+                </select>
+                <button type="submit">S'inscrire</button>
+            </form>
+            <p id="message" style="color:green; display:none;">Inscription réussie !</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Printemps des Entreprises - Tous droits réservés.</p>
+    </footer>
+    
+    <script src="js/script.js"></script>
 </body>
 </html>

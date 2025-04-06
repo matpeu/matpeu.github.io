@@ -50,6 +50,33 @@ app.get("/api/inscriptions", async (req, res) => {
 require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+app.post("/create-checkout-session", async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{
+        price_data: {
+          currency: 'eur',
+          product_data: {
+            name: 'Inscription à BizEvent',
+          },
+          unit_amount: 1500, // Montant en centimes (€15.00)
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      success_url: 'http://localhost:5000/success.html',
+      cancel_url: 'http://localhost:5000/cancel.html',
+    });
+
+    res.json({ id: session.id });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Erreur lors de la création de la session");
+  }
+});
+
+
 // Démarrer le serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Serveur démarré sur http://localhost:${PORT}`));

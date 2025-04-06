@@ -6,6 +6,8 @@
     <title>Inscription à l'Événement</title>
     <link rel="stylesheet" href="styles/general.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 <body>
     <header>
@@ -50,6 +52,7 @@
                     <option value="2025-06-20">20 juin 2025</option>
                 </select>
                 <button type="submit">S'inscrire</button>
+                <button id="payer">Payer l'inscription</button>
             </form>
             <p id="message" style="color:green; display:none;">Inscription réussie !</p>
         </div>
@@ -62,3 +65,17 @@
     <script src="js/script.js"></script>
 
 </html>
+
+<script>
+    document.getElementById("payer").addEventListener("click", async () => {
+      const stripe = Stripe("pk_test_51RAziFBALxj2oubUdLwVayyLEf074rrwrABPro169QXIYOAnmr6i0iSKERDSr2d1y7ZbafrCP1Ms0BYZyME2oRE600bKnYEL4M"); // Clé publique Stripe
+  
+      const res = await fetch("/create-checkout-session", {
+        method: "POST",
+      });
+  
+      const session = await res.json();
+      stripe.redirectToCheckout({ sessionId: session.id });
+    });
+  </script>
+  

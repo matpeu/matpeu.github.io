@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription à l'Événement</title>
+    <link rel="stylesheet" href="styles/general.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+</head>
+<body>
+    <header>
+        <h1>Biz&connect</h1>
+        <p> L'endroit pour faire des rencontres professionelles. Inscrivez-vous dès maintenant pour participer à cet événement exceptionnel !</p>
+    </header>
+    <button id="payer">Payer l'inscription</button>
+    <section class="event-info">
+        <div class="container">
+            <div class="text-content">
+                <h1>Inscription au <span>"BizEvent"</span></h1>
+                <h2>Salle des Clos Valence</h2>
+                <p><i class="fas fa-calendar-alt"></i> <span class="date">15 avril 2025 de 18:00 à 20:00</span></p>
+                <p><i class="fas fa-map-marker-alt"></i> Route des croix<br>
+                Route de Montélier<br>
+                26000, VALENCE, France</p>
+            </div>
+            <div class="button-container">
+                <button class="btn-ticket">BILLETTERIE</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="form-section">
+        <div class="container">
+            <h2>Formulaire d'Inscription</h2>
+            <form id="inscriptionForm">
+                <input type="text" id="nom" placeholder="Nom" required>
+                <input type="text" id="prenom" placeholder="Prénom" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="telephone" placeholder="Téléphone" required>
+                <input type="text" id="entreprise" placeholder="Nom de votre entreprise" required>
+                <input type="text" id="fonction" placeholder="Fonction" required>
+                <input type="text" id="internet" placeholder="Url de votre site internet">
+                <input type="text" id="linkedin" placeholder="Url de votre Linkedin">
+                <input type="text" id="facebook" placeholder="Url votre Facebook pro">
+                <label for="date">Date de l'événement :</label>
+                <select id="date" required>
+                    <option value="">Sélectionnez une date</option>
+                    <option value="2025-04-10">10 avril 2025</option>
+                    <option value="2025-05-15">15 mai 2025</option>
+                    <option value="2025-06-20">20 juin 2025</option>
+                </select>
+                <button type="submit">S'inscrire</button>
+                
+            </form>
+            <p id="message" style="color:green; display:none;">Inscription réussie !</p>
+        </div>
+    </section>
+</body>  
+    <footer>
+        <p>&copy; 2025 Biz&connect - Tous droits réservés.</p>
+    </footer>
+    
+    <script src="js/script.js"></script>
+
+</html>
+
+<script>
+    document.getElementById("payer").addEventListener("click", async () => {
+      const stripe = Stripe("pk_test_51RAziFBALxj2oubUdLwVayyLEf074rrwrABPro169QXIYOAnmr6i0iSKERDSr2d1y7ZbafrCP1Ms0BYZyME2oRE600bKnYEL4M"); // Clé publique Stripe
+  
+      const res = await fetch("/create-checkout-session", {
+        method: "POST",
+      });
+  
+      const session = await res.json();
+      stripe.redirectToCheckout({ sessionId: session.id });
+    });
+  </script>
+  

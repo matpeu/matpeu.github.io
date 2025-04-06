@@ -76,6 +76,11 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 });
 
+const path = require("path");
+
+// Sert les fichiers statiques (HTML, CSS, JS, images, etc.)
+app.use(express.static(path.join(__dirname, "public"))); // Remplace "public" par ton dossier réel
+
 
 // Démarrer le serveur
 const PORT = process.env.PORT || 5000;

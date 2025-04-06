@@ -47,6 +47,9 @@ app.get("/api/inscriptions", async (req, res) => {
   }
 });
 
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
 // Démarrer le serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Serveur démarré sur http://localhost:${PORT}`));
